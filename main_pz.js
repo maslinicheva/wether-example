@@ -62,10 +62,12 @@ $(function(){
         pressure: response.main.pressure
     }
     //$("<div>").text(JSON.stringify(wetherFullData)).appendTo("body");
+    let newDate = new Date(wetherFullData.time * 1000);
+
     $(".local").append(wetherFullData.city);
     $(".local").append(", " + wetherFullData.country);
 
-    $(".time").append(wetherFullData.time);
+    $(".time").append("" + newDate.getHours() + "." + newDate.getMinutes() + " " + newDate.getDate() + "." + newDate.getMonth() + "." + newDate.getFullYear());
 
     $(".wether").html("<img src='" + wetherFullData.icon + "'>");
     $(".wether").append("<br>" + wetherFullData.iconDecription);

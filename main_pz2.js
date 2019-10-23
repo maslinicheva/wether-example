@@ -106,7 +106,6 @@ $(function () {
         // const response = JSON.parse(getWether());  
 
         let mass = Object.keys(response.list);
-        console.log(mass.length);
 
         for (let i = 0; i < mass.length; i++) {
 
@@ -118,10 +117,13 @@ $(function () {
                 icon: "https://openweathermap.org/img/wn/" + respDay.weather[0].icon + "@2x.png",
                 temperature: respDay.main.temp
             }
-            console.log(wetherFullData.time);
-            $(".week").append(wetherFullData.time + "<br>");
-            $(".week").append("<img src='" + wetherFullData.icon + "'>" + "<br>");
-            $(".week").append(wetherFullData.temperature + "<br>" + "<br>");
+            
+            let newDate = new Date(wetherFullData.time * 1000);
+
+            let day = $("<div class='day'></div>").appendTo(".week");
+            $("<p>").text("" + newDate.getDate() + "." + newDate.getMonth() + "." + newDate.getFullYear()).appendTo(day);
+            $("<img src='" + wetherFullData.icon + "'>").appendTo(day);
+            $("<p>").text(wetherFullData.temperature + " C").appendTo(day);
 
             }
             
