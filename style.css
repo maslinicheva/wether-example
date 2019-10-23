@@ -1,0 +1,21 @@
+td{
+    padding: 0.5em;
+}
+
+.wether{
+    text-align: center;
+}
+
+.local{
+    font-weight: bold;
+}
+
+.temperature{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.week{
+    border: 2px solid black;
+    float: left;
+}
